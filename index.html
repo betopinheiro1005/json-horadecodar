@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="script.js"></script>
+  <title>JSON</title>
+</head>
+<body>
+
+  <h1>JSON</h1>
+
+  <p>Características:</p>
+
+  <ol>
+    <li>JSON = Javascript Object Notation;</li>
+    <li>É um formato de representação de dados;</li>
+    <li>Mais simples que XML, que é utilizado para fins parecidos;</li>
+    <li>Utiliza o formato de chave e valor;</li>
+    <li>É leve para ser enviado por requisições;</li>
+    <li>Muito utilizado para API e também arquivos de configuração.</li>
+  </ol>
+
+  <p>O JSON aceita diversos tipos de dados:</p>
+
+  <ul>
+    <li>Strings - Ex: "Olá Mundo"</li>
+    <li>Numeros - Ex: 1 ou 12.54</li>
+    <li>Booleanos - true ou false</li>
+    <li>Arrays - Ex: [1,2,3]</li>
+    <li>Objetos - Ex: {"nome": "Matheus"}</li>
+    <li>Dados nulos - null</li>
+  </ul>
+
+  <p>As strings, obrigatoriamente devem estar envolvidas por aspas duplas, e não aspas simples. Caso contrário não será um JSON válido.</p>
+
+  <p>JSON - Exemplo de um array de objetos</p>
+
+  <pre>
+    <code>
+      [
+        {
+          "nome": "Matheus",
+          "idade": 30,
+          "esta_trabalhando": true,
+          "detalhes_profissao": {
+            "profissao": "programador",
+            "empresa": "empresa X"
+          },
+          "hobbies": [
+            "Programar",
+            "Correr",
+            "Ler"
+          ]
+        },
+        {
+          "nome": "João",
+          "idade": 25,
+          "esta_trabalhando": false,
+          "detalhes_profissao": {
+            "profissao": null,
+            "empresa": null
+          },
+          "hobbies": [
+            "Academia",
+            "Jogar"
+          ]
+        }
+      ]
+    </code>
+  </pre>
+
+  <p>Não é permitido colocar uma vírgula na última linha de um array ou de um objeto.</p>
+
+  <pre>
+    <code>
+      const objs = [
+        {
+          nome: "Matheus",
+          idade: 30,
+          esta_trabalhando: true,
+          detalhes_profissao: {
+            "profissao": "programador",
+            "empresa": "empresa X"
+          },
+          hobbies: [
+            "Programar",
+            "Correr",
+            "Ler"
+          ]
+        },
+        {
+          "nome": "João",
+          "idade": 25,
+          "esta_trabalhando": false,
+          "detalhes_profissao": {
+            "profissao": null,
+            "empresa": null
+          },
+          "hobbies": [
+            "Academia",
+            "Jogar",
+          ]
+        },
+      ]
+    </code>
+  </pre>
+
+  <p>Assim não pode ser transferido. Tem que ser convertido em um texto em JSON</p>
+
+  <h2>Converter objeto para texto em JSON</h2>
+
+  <pre>
+    <code>
+      const jsonData = JSON.stringify(objs);
+    </code>
+  </pre>
+
+  <h3>Saída: </h3>
+  <pre>
+    <output>
+      [{"nome":"Matheus","idade":30,"esta_trabalhando":true,"detalhes_profissao":{"profissao":"programador","empresa":"empresa X"},"hobbies":["Programar","Correr","Ler"]},{"nome":"João","idade":25,"esta_trabalhando":false,"detalhes_profissao":{"profissao":null,"empresa":null},"hobbies":["Academia","Jogar"]}]
+    </output>
+  </pre>
+
+  <h2>Converter texto no formato JSON para objeto</h2>
+
+  <pre>
+    <code>
+      const objData = JSON.parse(jsonData);
+    </code>
+  </pre>
+
+  <h2>Trabalhando com os dados como um objeto</h2>
+
+  <pre>
+    <code>
+      objData.map((pessoa) => {
+        console.log(pessoa.nome);
+      });
+    </code>
+  </pre>
+
+</body>
+</html>
